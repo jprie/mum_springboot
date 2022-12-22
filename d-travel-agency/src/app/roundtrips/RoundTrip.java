@@ -6,9 +6,9 @@ import app.trips.Trip;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class RoundTrip extends Trip {
+public class RoundTrip extends Trip { // IS-A: Round Trip ist ein Trip
 
-    private ArrayList<Destination> destinations;
+    private ArrayList<Destination> destinations; // HAS-A: Round Trip hat ein ArrayList von Destinations
 
     public RoundTrip(String title, ArrayList<Destination> destinations, Trip.MeansOfTravel means,
                      BigDecimal price) {
@@ -25,7 +25,4 @@ public class RoundTrip extends Trip {
         id, title, destinations, means, price);
     }
 
-    //    public app.roundtrips.RoundTrip() {
-//        super()
-//    }
 }

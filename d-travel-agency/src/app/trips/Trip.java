@@ -3,6 +3,7 @@ package app.trips;
 import app.destinations.Destination;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Trip {
 
@@ -35,6 +36,19 @@ public class Trip {
                 ", means=" + means +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Trip trip = (Trip) o;
+        return id == trip.id && Objects.equals(title, trip.title) && Objects.equals(destination, trip.destination) && means == trip.means && Objects.equals(price, trip.price);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, destination, means, price);
     }
 
     public long getId() {

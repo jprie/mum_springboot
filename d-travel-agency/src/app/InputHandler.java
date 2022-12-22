@@ -1,9 +1,11 @@
 package app;
 
 import app.destinations.Destination;
+import app.roundtrips.RoundTrip;
 import app.trips.Trip;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class InputHandler {
@@ -14,7 +16,8 @@ public class InputHandler {
     public static final String EXIT = "exit";
     private TravelAgency travelAgency;
 
-    private static Scanner scanner = new Scanner(System.in);
+    // ACHTUNG: böser Hack -> wie könnte man das schöner machen
+    public static Scanner scanner = new Scanner(System.in);
 
     public InputHandler(TravelAgency travelAgency) {
         this.travelAgency = travelAgency;
@@ -93,8 +96,9 @@ public class InputHandler {
      */
     private void handleAddCommand() {
 
-//        System.out.println("Enter app.trips.Trip id");
-//        long id = scanner.nextLong();
+        System.out.println("Which kind of trip? (round/normal)");
+        String addCommand = scanner.next();
+
         scanner.nextLine(); // \r vom Stream löschen, damit wieder 'sauber'
 
         // Merkregel: zwischen next...() und nextLine(), füge extra nextLine() ein,
@@ -103,10 +107,18 @@ public class InputHandler {
         System.out.println("Enter title");
         String title = scanner.nextLine();
 
+        Destination destination = null;
+        ArrayList<Destination> destinations = new ArrayList<>();
 
-//        System.out.println("Enter destination");
-//        String destination = scanner.nextLine();
-        Destination destination = handleDestinationInput();
+        if (addCommand.equals("round")) {
+            //...ArrayList, hinzufügen von Destination die eingegeben wurde
+            // zur Liste, so oft bis user 'exit' eingibt, roundTrip erstellen
+            destinations = handleMultipleDestinationsInput();
+        } else {
+            // ... normaler Trip
+             destination = handleDestinationInput();
+        }
+
 
         System.out.println("Enter means of travel (");
         for (Trip.MeansOfTravel means : Trip.MeansOfTravel.values()) {
@@ -118,10 +130,31 @@ public class InputHandler {
         System.out.println("Enter price");
         BigDecimal price = scanner.nextBigDecimal();
 
-        Trip trip = new Trip(title, destination,
-                Trip.MeansOfTravel.valueOf(meansOfTravel.toUpperCase()), price);
+        Trip trip;
+        if (addCommand.equals("round")) {
+            trip = new RoundTrip(title, destinations,
+                    Trip.MeansOfTravel.valueOf(meansOfTravel.toUpperCase()), price);
+        } else {
+            trip = new Trip(title, destination,
+                    Trip.MeansOfTravel.valueOf(meansOfTravel.toUpperCase()), price);
+        }
 
         travelAgency.addTrip(trip);
+    }
+
+    private ArrayList<Destination> handleMultipleDestinationsInput() {
+
+        ArrayList<Destination> destinations = new ArrayList<>();
+        String exit;
+        do {
+
+            destinations.add(handleDestinationInput());
+            System.out.println("Another destination? (yes/no)");
+            exit = scanner.next();
+
+        } while(!exit.equals("no"));
+
+        return destinations;
     }
 
     private Destination handleDestinationInput() {
@@ -133,5 +166,7 @@ public class InputHandler {
 
         return new Destination(city, country);
     }
+
+
 
 }

@@ -12,6 +12,19 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to Fine Travels");
 
+        TravelAgency agency = initTravelAgency();
+
+        System.out.println(agency);
+
+        InputHandler inputHandler = new InputHandler(agency);
+        inputHandler.run();
+
+        testStaticMethode();
+
+
+    }
+
+    private static TravelAgency initTravelAgency() {
         Trip barcelonaTrip = new Trip("Barcelona for New Year's",
                 new Destination("Barcelona","Spain"),
                 Trip.MeansOfTravel.PLANE, new BigDecimal("450.99"));
@@ -50,24 +63,14 @@ public class Main {
         agency.getTrips().add(grazTrip);
 
         agency.addTrip(europeTrip);
-        // Ganze Liste überschreiben
-//        ArrayList<app.trips.Trip> newTrips = new ArrayList<>();
-//        newTrips.add(barcelonaTrip);
-//        newTrips.add(seychellesTrip);
-//
-//        agency.setTrips(newTrips);
 
         agency.addTrip(barcelonaTrip);
         agency.addTrip(seychellesTrip);
         agency.removeTrip(grazTrip);
-
-        System.out.println(agency);
-
-        InputHandler inputHandler = new InputHandler(agency);
-        inputHandler.run();
-
-        testStaticMethode();
+        return agency;
     }
+
+
 
     private static void testStaticMethode() {
 
