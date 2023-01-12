@@ -27,6 +27,13 @@ public class Trip {
         this.price = price;
     }
 
+    public boolean hasDestination(Destination destination) {
+
+        // Methode Objects.equals überprüft, ob eins oder beide Argumente ==null
+        // Wenn ja, gibt false zurück
+        return Objects.equals(this.destination, destination);
+    }
+
     @Override
     public String toString() {
         return "app.trips.Trip{" +

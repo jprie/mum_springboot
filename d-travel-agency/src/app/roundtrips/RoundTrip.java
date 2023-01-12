@@ -19,6 +19,16 @@ public class RoundTrip extends Trip { // IS-A: Round Trip ist ein Trip
     }
 
     @Override
+    public boolean hasDestination(Destination destination) {
+        return destinations.contains(destination);
+    }
+
+    public int getNumberOfDestinations() {
+
+        return destinations.size();
+    }
+
+    @Override
     public String toString() {
         // TODO: anderes Format unter Verwendung der Attribute/getter definieren
         return String.format("app.roundtrips.RoundTrip{id=%d, title=%s, destinations=%s, means=%s, price=%s}",

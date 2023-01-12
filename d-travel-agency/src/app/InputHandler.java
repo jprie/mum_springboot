@@ -4,6 +4,7 @@ import app.destinations.Destination;
 import app.roundtrips.RoundTrip;
 import app.trips.Trip;
 
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,6 +15,7 @@ public class InputHandler {
     public static final String REMOVE = "remove";
     public static final String SHOW = "show";
     public static final String EXIT = "exit";
+    public static final String FILTER = "filter";
     private TravelAgency travelAgency;
 
     // ACHTUNG: böser Hack -> wie könnte man das schöner machen
@@ -30,12 +32,10 @@ public class InputHandler {
     public void run() {
 
         boolean doExit = false;
-
-
         System.out.println("Welcome to the jungle of traveling");
         do {
 
-            System.out.println("Enter any of the following commands (add, remove, show, exit)");
+            System.out.println("Enter any of the following commands (add, filter, remove, show, exit)");
             String command = scanner.next();
             doExit = handleCommand(command);
 
@@ -54,6 +54,9 @@ public class InputHandler {
             case SHOW:
                 handleShowCommand();
                 break;
+            case FILTER:
+                handleFilterCommand();
+                break;
             case EXIT:
                 doExit = true;
                 break;
@@ -63,8 +66,26 @@ public class InputHandler {
         return doExit;
     }
 
-    private void handleShowCommand() {
+    private void handleFilterCommand() {
+
+        System.out.println("Enter destination to filter:");
+        Destination destination = handleDestinationInput();
+        ArrayList<Trip> filteredTrips = new ArrayList<>();
+
         for (Trip trip : travelAgency.getTrips()) {
+            if (trip.hasDestination(destination)) {
+                filteredTrips.add(trip);
+            }
+        }
+        printTrips(filteredTrips);
+    }
+
+    private void handleShowCommand() {
+        printTrips(travelAgency.getTrips());
+    }
+
+    private void printTrips(ArrayList<Trip> trips) {
+        for (Trip trip : trips) {
             System.out.println(trip);
         }
     }
