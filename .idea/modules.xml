@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/d-travel-agency/d-travel-agency.iml" filepath="$PROJECT_DIR$/d-travel-agency/d-travel-agency.iml" />
       <module fileurl="file://$PROJECT_DIR$/e-taxed-dogs/e-taxed-dogs.iml" filepath="$PROJECT_DIR$/e-taxed-dogs/e-taxed-dogs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/f-book-shop/f-book-shop.iml" filepath="$PROJECT_DIR$/f-book-shop/f-book-shop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/f-calculator/f-calculator.iml" filepath="$PROJECT_DIR$/f-calculator/f-calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/f-graphics/f-graphics.iml" filepath="$PROJECT_DIR$/f-graphics/f-graphics.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/murad-359.iml" filepath="$PROJECT_DIR$/.idea/murad-359.iml" />
     </modules>
   </component>
