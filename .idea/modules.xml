@@ -10,6 +10,8 @@
       <module fileurl="file://$PROJECT_DIR$/g-animals/g-animals.iml" filepath="$PROJECT_DIR$/g-animals/g-animals.iml" />
       <module fileurl="file://$PROJECT_DIR$/g-book-sort/g-book-sort.iml" filepath="$PROJECT_DIR$/g-book-sort/g-book-sort.iml" />
       <module fileurl="file://$PROJECT_DIR$/g-generic-tuple/g-generic-tuple.iml" filepath="$PROJECT_DIR$/g-generic-tuple/g-generic-tuple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/h-lists/h-lists.iml" filepath="$PROJECT_DIR$/h-lists/h-lists.iml" />
+      <module fileurl="file://$PROJECT_DIR$/h-sets/h-sets.iml" filepath="$PROJECT_DIR$/h-sets/h-sets.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/murad-359.iml" filepath="$PROJECT_DIR$/.idea/murad-359.iml" />
     </modules>
   </component>
