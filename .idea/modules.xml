@@ -12,7 +12,10 @@
       <module fileurl="file://$PROJECT_DIR$/g-generic-tuple/g-generic-tuple.iml" filepath="$PROJECT_DIR$/g-generic-tuple/g-generic-tuple.iml" />
       <module fileurl="file://$PROJECT_DIR$/h-lists/h-lists.iml" filepath="$PROJECT_DIR$/h-lists/h-lists.iml" />
       <module fileurl="file://$PROJECT_DIR$/h-sets/h-sets.iml" filepath="$PROJECT_DIR$/h-sets/h-sets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/i-maps/i-maps.iml" filepath="$PROJECT_DIR$/i-maps/i-maps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-demo/i-spring-demo.iml" filepath="$PROJECT_DIR$/spring-demo/i-spring-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/murad-359.iml" filepath="$PROJECT_DIR$/.idea/murad-359.iml" />
+      <module fileurl="file://$PROJECT_DIR$/i-spring-demo/spring-demo.iml" filepath="$PROJECT_DIR$/i-spring-demo/spring-demo.iml" />
     </modules>
   </component>
 </project>
