@@ -1,0 +1,12 @@
+customer_id;address;email;lastname;firstname;dob;phone;type
+1;Hauptplatz 5;hallo@orf.at;Falkner;Heinz;1945-12-12;+436762339034;gold
+2;Kirchengasse 7;birgit@bauer.at;Bauer;Birgit;1963-07-32;+39334529338;platin
+2;Kirchengasse 7;birgit@bauer.at;Bauer;Birgit;1963-07-32;+39334529338;platin
+3;Stephansplatz 1;paul@kirche.at;Kirche;Paul;2002-02-15;065033789123;silber
+4;Geidorfplatz 18;lukas@hofer.at;Hofer;Lukas;2019-09-12;06641828119;gold
+5;Wildweg 17;rosi@hirtner.at;Hirtner;Rosi;1966-02-12;004423482356774;gold
+6;Jakominiplatz 3;bert@anwalt.at;Supper;Bert;1924-002;0081239044552;silber
+7;Favoritenstraße 217;Rudi.Unger@zeit.de;Unger;Rudi;1935-12-02;+3484564234665;platin
+8;Zellerstraße 4;Brian.bukovski@orf.at;Bukovski;Brian;1948-04-06;+43902318339;platin
+9;Floridsdorfer Hauptstraße 33/4;thomas.bauer@hotmail.com;Bauer;Thomas;1973-02-12;+43316993312;gold
+10;Linke Wienzeile 8;hofmaier@yahoo.com;Hofmaier;Peter;1959-04-19;+27839256627;silber

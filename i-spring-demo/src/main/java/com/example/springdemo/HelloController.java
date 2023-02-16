@@ -1,7 +1,5 @@
 package com.example.springdemo;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,5 +11,9 @@ public class HelloController {
         return "Hello World!";
     }
 
+    @GetMapping("/studentjson")
+    public Student getStudent() {
+        return new Student("Johannes", "Priebsch");
+    }
 
 }
