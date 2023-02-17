@@ -17,6 +17,9 @@
       <module fileurl="file://$PROJECT_DIR$/j-book-streamapi/j-book-streamapi.iml" filepath="$PROJECT_DIR$/j-book-streamapi/j-book-streamapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/j-customer-streamapi/j-customer-streamapi.iml" filepath="$PROJECT_DIR$/j-customer-streamapi/j-customer-streamapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/j-string-array-letters/j-string-array-letters.iml" filepath="$PROJECT_DIR$/j-string-array-letters/j-string-array-letters.iml" />
+      <module fileurl="file://$PROJECT_DIR$/k-animal-stream/k-animal-stream.iml" filepath="$PROJECT_DIR$/k-animal-stream/k-animal-stream.iml" />
+      <module fileurl="file://$PROJECT_DIR$/k-checked-exceptions/k-checked-exceptions.iml" filepath="$PROJECT_DIR$/k-checked-exceptions/k-checked-exceptions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/k-runtime-exceptions/k-runtime-exceptions.iml" filepath="$PROJECT_DIR$/k-runtime-exceptions/k-runtime-exceptions.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/murad-359.iml" filepath="$PROJECT_DIR$/.idea/murad-359.iml" />
       <module fileurl="file://$PROJECT_DIR$/i-spring-demo/spring-demo.iml" filepath="$PROJECT_DIR$/i-spring-demo/spring-demo.iml" />
     </modules>

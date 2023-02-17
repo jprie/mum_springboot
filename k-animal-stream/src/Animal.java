@@ -1,5 +1,3 @@
-import java.util.Optional;
-
 public class Animal implements Comparable<Animal> {
 
     @Override
@@ -15,14 +13,6 @@ public class Animal implements Comparable<Animal> {
     private Species species;
     private int speed;
     private float weight;
-
-    private Tail tail;
-
-    public Optional<Tail> getTail() {
-        // Packt die Bombe ein
-        return Optional.ofNullable(tail);
-    }
-
 
     public Animal(String name, Species species, int speed, float weight) {
         this.name = name;
