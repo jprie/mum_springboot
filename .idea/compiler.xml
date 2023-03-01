@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="l-javafx-calculator" />
         <module name="i-spring-demo" />
         <module name="spring-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="i-spring-demo" target="19" />
+      <module name="l-javafx-calculator" target="19" />
       <module name="spring-demo" target="19" />
     </bytecodeTargetLevel>
   </component>

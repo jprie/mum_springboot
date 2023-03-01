@@ -1,0 +1,22 @@
+.button {
+    -fx-pref-width: 75;
+    -fx-pref-height: 75;
+    -fx-font-size: 20;
+
+    -fx-border-color: gray;
+    -fx-border-width: 2;
+    -fx-border-insets: 1;
+    -fx-border-radius: 15;
+}
+
+#display {
+    -fx-font-size: 20;
+    -fx-pref-width: 290;
+    -fx-border-color: darkblue;
+    -fx-text-fill: darkgreen;
+    -fx-background-color: lightblue;
+}
+
+.operatorButton {
+    -fx-text-fill: red;
+}
