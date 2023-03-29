@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/spring-demo/pom.xml" />
         <option value="$PROJECT_DIR$/i-spring-demo/pom.xml" />
         <option value="$PROJECT_DIR$/l-javafx-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/m-photo-library/pom.xml" />
+        <option value="$PROJECT_DIR$/n-photo-database/pom.xml" />
       </list>
     </option>
   </component>

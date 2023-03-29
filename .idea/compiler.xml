@@ -2,19 +2,21 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="l-javafx-calculator" />
+        <module name="m-photo-library" />
         <module name="i-spring-demo" />
+        <module name="l-javafx-calculator" />
         <module name="spring-demo" />
+        <module name="n-photo-database" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="i-spring-demo" target="19" />
       <module name="l-javafx-calculator" target="19" />
-      <module name="spring-demo" target="19" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
