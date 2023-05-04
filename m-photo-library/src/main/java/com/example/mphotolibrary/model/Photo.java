@@ -16,7 +16,9 @@ public class Photo {
     private String filePath;
     private String comment;
 
+
     public Photo(String title, Photographer photographer, LocalDate date, String filePath, String comment) {
+        this.id = 0;
         this.title = title;
         this.photographer = photographer;
         this.date = date;

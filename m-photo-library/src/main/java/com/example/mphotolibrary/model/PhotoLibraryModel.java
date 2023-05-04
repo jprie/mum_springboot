@@ -1,8 +1,11 @@
 package com.example.mphotolibrary.model;
 
+import com.example.mphotolibrary.repository.PhotoRepository;
+import com.example.mphotolibrary.repository.PhotographerRepository;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
 import java.time.LocalDate;
@@ -32,14 +35,39 @@ public class PhotoLibraryModel {
                 )
         );
     }
-    public final ObservableList<Photo> photos = FXCollections.observableList(defaultPhotos());
+
+    private final PhotographerRepository photographerRepository = new PhotographerRepository();
+    private final PhotoRepository photoRepository = new PhotoRepository();
+
+    public final ObservableList<Photo> photos = FXCollections.observableList(photoRepository.readAll());
     public final ObservableList<Photographer> photographers =
-            FXCollections.observableList(defaultPhotographers());
+            FXCollections.observableList(photographerRepository.readAll());
     private final ObjectProperty<Photo> selectedPhoto =
             new SimpleObjectProperty<>();
 
     private final ObjectProperty<Photographer> selectedPhotographer =
             new SimpleObjectProperty<>();
+
+    public PhotoLibraryModel() {
+
+        // registriere Listener auf den ObservableLists
+        // 'direkte' Verbindung photos zu photo-Tabelle: 1-zu-1 jede Operation wird direkt in der Datenbank übernommen
+        photos.addListener((ListChangeListener<Photo>) change -> {
+            while(change.next()) {
+                if (change.wasReplaced()) change.getAddedSubList().forEach(photoRepository::update);
+                else if (change.wasAdded()) change.getAddedSubList().forEach(photoRepository::create);
+                else if (change.wasRemoved()) change.getRemoved().forEach(photoRepository::delete);
+            }
+        });
+
+        photographers.addListener((ListChangeListener<Photographer>) change -> {
+            while(change.next()) {
+                if (change.wasReplaced()) change.getAddedSubList().forEach(photographerRepository::update);
+                else if (change.wasAdded()) change.getAddedSubList().forEach(photographerRepository::create);
+                else if (change.wasRemoved()) change.getRemoved().forEach(photographerRepository::delete);
+            }
+        });
+    }
 
     public Photo getSelectedPhoto() {
         return selectedPhoto.get();

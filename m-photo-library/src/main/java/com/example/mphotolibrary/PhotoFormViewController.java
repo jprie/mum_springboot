@@ -228,6 +228,7 @@ public class PhotoFormViewController extends BaseController {
 
             photoFromForm().ifPresent(updatedPhoto -> {
                 int index = model.photos.indexOf(selectedPhoto);
+                updatedPhoto.setId(selectedPhoto.getId());
                 model.photos.set(index, updatedPhoto);
             });
         }
