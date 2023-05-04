@@ -8,15 +8,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="m-photo-library" />
-        <module name="i-spring-demo" />
         <module name="l-javafx-calculator" />
-        <module name="spring-demo" />
         <module name="n-photo-database" />
+        <module name="i-spring-demo" />
+        <module name="o-spring-context" />
+        <module name="o-spring-context-annotations" />
+        <module name="spring-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="i-spring-demo" target="19" />
       <module name="l-javafx-calculator" target="19" />
+      <module name="o-spring-context-javaconfig" target="19" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
