@@ -12,7 +12,10 @@ public class Main {
         System.out.println(parrot);
 
         var person = context.getBean(Person.class);
+//        person.setName("Pauli");
 
         System.out.println(person);
+
+
     }
 }

@@ -9,10 +9,13 @@ import org.springframework.context.annotation.Primary;
 @ComponentScan(basePackages = "org.example")
 public class Config {
 
-    @Primary
     @Bean
-    String personName() {
-        return "Hugo";
+    public String name() {
+        return "Pauli from Bean";
     }
 
+    @Bean
+    public String parrotName() {
+        return "Polly";
+    }
 }

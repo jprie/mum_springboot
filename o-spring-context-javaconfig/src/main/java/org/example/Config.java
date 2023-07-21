@@ -1,5 +1,6 @@
 package org.example;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -25,7 +26,7 @@ public class Config {
 
     @Bean
     Person person(Parrot parrot) {
-        var person = new Person(polly());
+        var person = new Person(parrot);
         person.setName("Owner");
         return person;
     }

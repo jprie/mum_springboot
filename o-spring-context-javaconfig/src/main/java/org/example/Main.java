@@ -15,14 +15,18 @@ public class Main {
             System.out.println("Parrots are the same");
         }
 
-        var pollyParrot = context.getBean("polly");
+        Parrot pollyParrot = context.getBean("polly", Parrot.class);
+        pollyParrot.setName("Burli");
 
-        System.out.println(parrot);
-        System.out.println(pollyParrot);
+        System.out.println("Bean parrot " + parrot);
+        System.out.println("Bean polly " + pollyParrot);
 
         var person = context.getBean(Person.class);
 
-        System.out.println(person.getParrot().getName());
+        System.out.println("Name of person's parrot before " + person.getParrot().getName());
+        person.setParrot(pollyParrot);
+
+        System.out.println("Name of person's parrot after " + person.getParrot().getName());
 
     }
 }

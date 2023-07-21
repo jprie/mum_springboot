@@ -12,6 +12,9 @@
         <option value="$PROJECT_DIR$/o-spring-context/pom.xml" />
         <option value="$PROJECT_DIR$/o-spring-context-annotations/pom.xml" />
         <option value="$PROJECT_DIR$/o-spring-context-javaconfig/pom.xml" />
+        <option value="$PROJECT_DIR$/p-message-notifier/pom.xml" />
+        <option value="$PROJECT_DIR$/p-comment-notifier/pom.xml" />
+        <option value="$PROJECT_DIR$/t-spring-mvc/pom.xml" />
       </list>
     </option>
   </component>
