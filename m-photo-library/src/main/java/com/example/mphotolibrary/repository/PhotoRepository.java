@@ -1,7 +1,8 @@
 package com.example.mphotolibrary.repository;
 
-import org.example.model.Photo;
-import org.example.model.Photographer;
+
+import com.example.mphotolibrary.model.Photo;
+import com.example.mphotolibrary.model.Photographer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,8 +47,9 @@ public class PhotoRepository implements CrudRepository<Photo> {
 
                 try (ResultSet resultSet = preparedStatement.getGeneratedKeys()) {
                     resultSet.next();
-                    long id = resultSet.getLong("id");
+                    long id = resultSet.getLong(1);
                     entity.setId(id);
+//                    Photo photo = new Photo(id, entity.getTitle(), entity.getPhotographer(), entity.getDate(), entity.getFilePath(), entity.getComment());
                 }
             }
 

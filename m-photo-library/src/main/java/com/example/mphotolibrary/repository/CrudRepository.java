@@ -6,7 +6,7 @@ import java.util.Optional;
 public interface CrudRepository<T> {
 
     static final String PASSWORD = "";
-    static final String DB_URL = "jdbc:mariadb://localhost:3306/photos";
+    static final String DB_URL = "jdbc:mariadb://localhost:3306/photo_db";
     static final String USERNAME = "root";
 
     // CRUD

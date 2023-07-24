@@ -9,6 +9,13 @@
         <option value="$PROJECT_DIR$/l-javafx-demo/pom.xml" />
         <option value="$PROJECT_DIR$/m-photo-library/pom.xml" />
         <option value="$PROJECT_DIR$/n-photo-database/pom.xml" />
+        <option value="$PROJECT_DIR$/o-spring-context/pom.xml" />
+        <option value="$PROJECT_DIR$/o-spring-context-annotations/pom.xml" />
+        <option value="$PROJECT_DIR$/o-spring-context-javaconfig/pom.xml" />
+        <option value="$PROJECT_DIR$/p-message-notifier/pom.xml" />
+        <option value="$PROJECT_DIR$/p-comment-notifier/pom.xml" />
+        <option value="$PROJECT_DIR$/t-spring-mvc/pom.xml" />
+        <option value="$PROJECT_DIR$/q-taco-app/pom.xml" />
       </list>
     </option>
   </component>
