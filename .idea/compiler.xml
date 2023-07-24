@@ -8,9 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="m-photo-library" />
+        <module name="q-taco-app" />
         <module name="l-javafx-calculator" />
         <module name="n-photo-database" />
-        <module name="t-spring-mvc" />
         <module name="p-comment-notifier" />
         <module name="i-spring-demo" />
         <module name="o-spring-context" />
@@ -23,11 +23,13 @@
       <module name="l-javafx-calculator" target="19" />
       <module name="o-spring-context-javaconfig" target="19" />
       <module name="p-message-notifier" target="19" />
+      <module name="t-spring-mvc" target="19" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="i-spring-demo" options="-parameters" />
+      <module name="q-taco-app" options="-parameters" />
       <module name="spring-demo" options="-parameters" />
     </option>
   </component>
