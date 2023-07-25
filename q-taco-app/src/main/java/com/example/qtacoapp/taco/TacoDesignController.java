@@ -21,22 +21,7 @@ public class TacoDesignController {
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
 
-        var ingredients = List.of(
-                new Ingredient("White Bun", "WBUN", IngredientType.BUN),
-                new Ingredient("Rye Bun", "RBUN", IngredientType.BUN),
-                new Ingredient("Rucola", "RUCO", IngredientType.SALAD),
-                new Ingredient("Lettuce", "LETT", IngredientType.SALAD),
-                new Ingredient("Chicken", "CHIC", IngredientType.MEAT),
-                new Ingredient("Burger", "BURG", IngredientType.MEAT),
-                new Ingredient("Mozzarella", "MOZZ", IngredientType.CHEESE),
-                new Ingredient("Gouda", "GOUD", IngredientType.CHEESE),
-                new Ingredient("Red Sauce", "RSAU", IngredientType.SAUCE),
-                new Ingredient("Sour creme", "SOUR", IngredientType.SAUCE),
-                new Ingredient("Cucumber", "CUCU", IngredientType.VEGGIE),
-                new Ingredient("Tomatoes", "TOMA", IngredientType.VEGGIE)
-        );
-
-        var ingredientsMap = ingredients
+        var ingredientsMap = Ingredient.ingredients
                 .stream()
                 .collect(Collectors.groupingBy(ingredient -> ingredient.getIngredientType().toString().toLowerCase() ));
 
@@ -61,7 +46,13 @@ public class TacoDesignController {
                             Errors errors,
                             @ModelAttribute TacoOrder tacoOrder) {
       log.info("Processing taco: {}", taco);
+
+      if (errors.hasErrors()) {
+          errors.getAllErrors().forEach(error -> {
+              log.error("Error validating taco: {}", error);
+          });
+      }
       tacoOrder.addTaco(taco);
-      return "redirect-to"
+
     }
 }

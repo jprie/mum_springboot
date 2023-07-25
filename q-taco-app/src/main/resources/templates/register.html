@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/html"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Taco-Cloud</title>
+</head>
+<body>
+<h3>Register here</h3>
+
+<form method="post" th:object="${userForm}">
+
+
+    <label for="username">Username</label>
+    <input id="username" th:field="*{username}" type="text"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('username')}"
+          th:errors="*{username}">ERROR</span><br/>
+
+    <label for="password">Password</label>
+    <input id="password" th:field="*{password}" type="password">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('password')}"
+          th:errors="*{password}">ERROR</span><br/>
+
+
+    <label for="confirmPassword">Confirm</label>
+    <input id="confirmPassword" th:field="*{confirmPassword}" type="password">
+<!--    <span class="validationError"-->
+<!--          th:if="${#fields.hasErrors()}"-->
+<!--          th:errors="*{all}">ERROR</span><br/>-->
+        <span class="validationError"
+              th:if="${#fields.hasErrors('${userForm}')}"
+              th:text="${err}" th:each="err : ${#fields.errors('${userForm}')}">ERROR</span><br/>
+<!--    <span class="validationError"-->
+<!--              th:if="${#fields.hasErrors('PasswordMatch.userForm')}"-->
+<!--        th:text="${err}" th:each="err : ${#fields.errors('${userForm}')}">ERROR</span><br/>-->
+
+<!--    <h4>Errors on a single field:</h4>-->
+<!--    <div th:if="${#fields.hasErrors('${userForm.password}')}"-->
+<!--         th:errors="*{user.password}"></div>-->
+<!--    <ul th:if="${#fields.hasErrors('${userForm}')}">-->
+<!--        <li th:each="err : ${#fields.errors('${userForm}')}" th:text="${err}" />-->
+<!--    </ul>-->
+
+    <input type="submit" th:value="Register"/>
+</form>
+</body>
+</html>
