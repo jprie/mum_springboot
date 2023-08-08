@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Taco Cloud</title>
+    <link type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+
+<h2>Checkout</h2>
+
+<img th:src="@{/images/TacoCloud.png}"/>
+
+
+<h3>Delivery address</h3>
+<table>
+    <tr>
+        <td th:text="${customer.fullName()}">FULLNAME</td>
+    </tr>
+</table>
+
+<h3>Order</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="taco : ${tacos}">
+        <td th:text="${taco.name()}">TACO NAME</td>
+        <td th:text="${taco.price()}">TACO PRICE</td>
+    </tr>
+    <tr>
+        <td>Sum</td>
+        <td th:text="${sum}">SUM</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Choose payment provider</h3>
+<form method="post" th:object="${paymentProviderForm}">
+    <ul>
+        <li th:each="pp : ${paymentProviders}">
+            <input type="radio" th:field="*{name}" th:value="${pp.name()}"/>
+            <label th:for="${#ids.prev('name')}" th:text="${pp.name}">CC_Provider</label>
+        </li>
+    </ul>
+    <label th:for="${#ids.next('store')}" th:text="'Store for next time'">CC_Store</label>
+    <input type="checkbox" th:field="*{store}">
+    <button>Payment</button>
+</form>
+</body>
+</html>

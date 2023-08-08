@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Provider</title>
+</head>
+<body>
+  <h2>Payment with MasterCard</h2>
+
+  <p>
+    Payment of <span th:text="${price}">PRICE</span>
+    To <span th:text="${sellerInfo}">SELLER NAME</span>
+  </p>
+
+<form method="post" th:object="${paymentInfo}" th:action="@{/pay}">
+
+    <label>Card holder</label>
+    <input type="text" th:value="*{ccHolder}" name="ccHolder"><br/>
+
+    <label>Card number</label>
+    <input type="text" th:value="*{ccNumber}" name="ccNumber"><br/>
+
+    <label>Expires on</label>
+    <input type="text" th:value="*{ccExpire}" name="ccExpires"><br/>
+
+    <label>CCV</label>
+    <input type="text" th:value="*{ccCCV}" name="ccCCV"><br/>
+
+    <button>Pay</button>
+</form>
+
+</body>
+</html>

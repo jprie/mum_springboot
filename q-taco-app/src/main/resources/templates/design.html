@@ -13,6 +13,9 @@
 <img th:src="@{/images/TacoCloud.png}"/>
 <form method="post" th:object="${taco}">
 
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ingredients')}"
+          th:errors="*{ingredients}">INGREDIENTS ERROR</span><br/>
     <div class="grid">
         <div class="ingredient-group" id="buns">
             <h3>Pick your bun:</h3>
@@ -78,10 +81,11 @@
 
     <div>
         <h3>Name your taco creation:</h3>
-        <input type="text" th:field="*{name}"/>
         <span class="validationError"
               th:if="${#fields.hasErrors('name')}"
-              th:errors="*{name}">Name Error</span>
+              th:errors="*{name}">Name Error</span><br/>
+        <input type="text" th:field="*{name}" th:errorclass="validationError"/>
+
         <br/>
     </div>
 

@@ -8,12 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
 @RequestMapping("/design")
+@SessionAttributes("tacoOrder")
 public class TacoDesignController {
 
     // model for design page
@@ -31,6 +31,9 @@ public class TacoDesignController {
 
     }
 
+    @ModelAttribute(name = "tacoOrder")
+    public TacoOrder tacoOrder() { return new TacoOrder(); }
+
     @ModelAttribute(name = "taco")
     public Taco taco() {
         return new Taco();
@@ -42,7 +45,7 @@ public class TacoDesignController {
     }
 
     @PostMapping
-    public void processTaco(@Valid Taco taco,
+    public String processTaco(@Valid Taco taco,
                             Errors errors,
                             @ModelAttribute TacoOrder tacoOrder) {
       log.info("Processing taco: {}", taco);
@@ -51,8 +54,10 @@ public class TacoDesignController {
           errors.getAllErrors().forEach(error -> {
               log.error("Error validating taco: {}", error);
           });
+          return null;
       }
       tacoOrder.addTaco(taco);
+      return "redirect:/orders/current";
 
     }
 }

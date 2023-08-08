@@ -5,9 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Taco-Cloud</title>
+    <link type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
-<h3>Register here</h3>
+<h2>Register here</h2>
+
+<img th:src="@{/images/TacoCloud.png}"/>
 
 <form method="post" th:object="${userForm}">
 
@@ -32,7 +35,7 @@
 <!--          th:errors="*{all}">ERROR</span><br/>-->
         <span class="validationError"
               th:if="${#fields.hasErrors('${userForm}')}"
-              th:text="${err}" th:each="err : ${#fields.errors('${userForm}')}">ERROR</span><br/>
+              th:text="${err}" th:each="err : ${#fields.errors('${userForm}')}">ERROR</span>
 <!--    <span class="validationError"-->
 <!--              th:if="${#fields.hasErrors('PasswordMatch.userForm')}"-->
 <!--        th:text="${err}" th:each="err : ${#fields.errors('${userForm}')}">ERROR</span><br/>-->

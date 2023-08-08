@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/html"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Taco-Cloud</title>
+</head>
+<body>
+<h2>Register here</h2>
+
+<img th:src="@{/images/TacoCloud.png}"/>
+<a th:href="@{/design}">Add another taco</a>
+<br/>
+
+<form method="post" th:object="${orderForm}">
+
+    <h2>Finish your order</h2>
+    <ul>
+        <li th:each="taco : ${tacoOrder.tacos}">
+            <span th:text="${taco.name}">TACO NAME</span>
+        </li>
+    </ul>
+
+    <div class="grid">
+
+        <label>Firstname</label>
+        <input name="firstName" th:value="*{firstName}" type="text"><br/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('firstName')}"
+              th:errors="*{firstName}">FIRST NAME ERROR</span>
+
+        <label>Lastname</label>
+        <input name="lastName" th:value="*{lastName}" type="text"><br/>
+        <label>Street name</label>
+        <input name="street" th:value="*{street}" type="text"><br/>
+        <label>Street number</label>
+        <input name="streetNr" th:value="*{streetNr}" type="text"><br/>
+        <label>city</label>
+        <input name="city" th:value="*{city}" type="text"><br/>
+        <label>State</label>
+        <input name="state" th:value="*{state}" type="text"><br/>
+        <label>zipCode</label>
+        <input name="zipCode" th:value="*{zipCode}" type="text"><br/>
+        <label>Country</label>
+        <input name="Country" th:value="*{country}" type="text"><br/>
+        <label>Email</label>
+        <input name="email" th:value="*{email}" type="text"><br/>
+        <label>Phone</label>
+        <select th:field="*{phonePrefix}">
+            <option th:each="pf : ${phonePrefixes}"
+                    th:value="${pf.country}"
+                    th:text="${pf.country + ' ' + pf.number}">Phone prefix</option>
+        </select>
+        <input name="phone" th:value="*{phone}" type="text"><br/>
+
+
+    </div>
+
+    <input type="submit" th:value="Proceed"/>
+</form>
+</body>
+</html>
