@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Taco Admin Client</title>
+</head>
+<body>
+
+    <h1>Ingredients</h1>
+
+    <form th:action="@{/admin/ingredients}" th:object="${ingredient}" method="post">
+
+        <label for="id">Id</label>
+        <input id="id" th:field="*{id}" type="text"/>
+        <span class="validationError" th:if="${#fields.hasErrors('id')}" th:errors="*{id}">ID_ERROR</span>
+        <br/>
+
+        <label for="name">Name</label>
+        <input id="name" th:field="*{name}" type="text"/>
+        <span class="validationError" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">ID_ERROR</span><br/>
+
+        <label for="type">Type</label>
+        <!--        <input id="type" name="type" type=""/><br/>-->
+        <select class="form-control" th:field="*{ingredientType}" id="type">
+            <option th:each="t : ${ingredientTypes}" th:value="${t}" th:text="${t}">
+            </option>
+        </select><br/>
+
+        <label for="price">Price</label>
+        <input id="price" th:field="*{price}" type="number" step=".1"/>
+        <span class="validationError" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">ID_ERROR</span><br/>
+
+        <input type="submit" value="Send">
+    </form>
+
+
+</body>
+</html>
