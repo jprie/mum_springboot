@@ -6,11 +6,18 @@ import com.example.qtacoapp.domain.taco.IngredientType;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
 @Configuration
-public class Config {
+public class WebConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("welcome");
+    }
 
     @Bean
     public ApplicationRunner applicationRunner(IngredientRepository ingredientRepository) {
@@ -35,4 +42,6 @@ public class Config {
         };
 
     }
+
+
 }

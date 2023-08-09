@@ -1,9 +1,9 @@
 package com.example.qtacoapp.web.tacoorder;
 
+import com.example.qtacoapp.WebConfig;
 import com.example.qtacoapp.domain.tacoorder.OrderService;
 import com.example.qtacoapp.utility.Utility;
 import com.example.qtacoapp.web.taco.IngredientConverter;
-import com.example.qtacoapp.web.tacoorder.OrderController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(controllers = {OrderController.class},
         excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,
-                classes = IngredientConverter.class)})
+                classes = { IngredientConverter.class, WebConfig.class })})
 class OrderControllerTest {
 
     @Autowired
@@ -67,7 +67,7 @@ class OrderControllerTest {
                                 .param("zipCode", "1100")
                                 .param("country", "Austria")
                                 .param("email", "johannes@priebsch.at")
-                                .param("phonePrefix", "+43")
+                                .param("phonePrefix", "AT")
                                 .param("phone", "6505656767")
                 )
                 .andExpect(status().is3xxRedirection())

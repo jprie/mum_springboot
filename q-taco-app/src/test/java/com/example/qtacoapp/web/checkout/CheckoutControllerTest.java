@@ -1,6 +1,6 @@
 package com.example.qtacoapp.web.checkout;
 
-import com.example.qtacoapp.data.IngredientRepository;
+import com.example.qtacoapp.WebConfig;
 import com.example.qtacoapp.data.OrderRepository;
 import com.example.qtacoapp.domain.payment.PaymentProvider;
 import com.example.qtacoapp.domain.payment.PaymentService;
@@ -9,8 +9,6 @@ import com.example.qtacoapp.domain.tacoorder.OrderService;
 import com.example.qtacoapp.domain.tacoorder.PricedTaco;
 import com.example.qtacoapp.domain.tacoorder.TacoOrder;
 import com.example.qtacoapp.utility.Utility;
-import com.example.qtacoapp.web.checkout.CheckoutController;
-import com.example.qtacoapp.web.checkout.PaymentProviderForm;
 import com.example.qtacoapp.web.taco.IngredientConverter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,7 +35,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(controllers = { CheckoutController.class},
         excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,
-                classes = IngredientConverter.class)})
+                classes = {IngredientConverter.class, WebConfig.class})})
 class CheckoutControllerTest {
 
     @Autowired

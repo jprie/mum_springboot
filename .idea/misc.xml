@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/r-taco-admin-app" />
     <file type="web" url="file://$PROJECT_DIR$/s-taco-payment-kotlin" />
   </component>
   <component name="MavenProjectsManager">

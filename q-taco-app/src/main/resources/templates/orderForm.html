@@ -25,34 +25,34 @@
     <div class="grid">
 
         <label>Firstname</label>
-        <input name="firstName" th:value="*{firstName}" type="text"><br/>
+        <input name="firstName" th:field="*{firstName}" type="text"><br/>
         <span class="validationError"
               th:if="${#fields.hasErrors('firstName')}"
               th:errors="*{firstName}">FIRST NAME ERROR</span>
 
         <label>Lastname</label>
-        <input name="lastName" th:value="*{lastName}" type="text"><br/>
+        <input th:field="*{lastName}" type="text"><br/>
         <label>Street name</label>
-        <input name="street" th:value="*{street}" type="text"><br/>
+        <input th:field="*{street}" type="text"><br/>
         <label>Street number</label>
-        <input name="streetNr" th:value="*{streetNr}" type="text"><br/>
+        <input th:field="*{streetNr}" type="text"><br/>
         <label>city</label>
-        <input name="city" th:value="*{city}" type="text"><br/>
+        <input th:field="*{city}" type="text"><br/>
         <label>State</label>
-        <input name="state" th:value="*{state}" type="text"><br/>
+        <input th:field="*{state}" type="text"><br/>
         <label>zipCode</label>
-        <input name="zipCode" th:value="*{zipCode}" type="text"><br/>
+        <input th:field="*{zipCode}" type="text"><br/>
         <label>Country</label>
-        <input name="Country" th:value="*{country}" type="text"><br/>
+        <input th:field="*{country}" type="text"><br/>
         <label>Email</label>
-        <input name="email" th:value="*{email}" type="text"><br/>
+        <input th:field="*{email}" type="text"><br/>
         <label>Phone</label>
         <select th:field="*{phonePrefix}">
             <option th:each="pf : ${phonePrefixes}"
                     th:value="${pf.country}"
                     th:text="${pf.country + ' ' + pf.number}">Phone prefix</option>
         </select>
-        <input name="phone" th:value="*{phone}" type="text"><br/>
+        <input name="phone" th:field="*{phone}" type="text"><br/>
 
 
     </div>

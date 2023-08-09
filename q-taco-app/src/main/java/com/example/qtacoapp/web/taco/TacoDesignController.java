@@ -60,7 +60,7 @@ public class TacoDesignController {
           errors.getAllErrors().forEach(error -> {
               log.error("Error validating taco: {}", error);
           });
-          return null;
+          return null; // "design"
       }
       tacoOrder.addTaco(taco);
       return "redirect:/orders/current";

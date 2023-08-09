@@ -34,7 +34,7 @@ public class OrderForm {
 
     @Email
     private String email;
-    @Pattern(regexp = "\\+\\d{2,3}")
+    @Size(max = 2, min = 2)
     private String phonePrefix;
     @Pattern(regexp = "\\d{3}\\d{7,8}")
     private String phone;
