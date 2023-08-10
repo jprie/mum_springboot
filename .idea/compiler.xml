@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="m-photo-library" />
         <module name="q-taco-app" />
+        <module name="t-taco-app" />
         <module name="l-javafx-calculator" />
         <module name="n-photo-database" />
         <module name="p-comment-notifier" />
@@ -16,13 +17,6 @@
         <module name="o-spring-context" />
         <module name="o-spring-context-annotations" />
         <module name="spring-demo" />
-      </profile>
-      <profile name="Gradle Imported" enabled="true">
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.28/a2ff5da8bcd8b1b26f36b806ced63213362c6dcc/lombok-1.18.28.jar" />
-        </processorPath>
-        <module name="r-taco-admin-app.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -42,6 +36,7 @@
       <module name="r-taco-order-app" options="-parameters" />
       <module name="s-taco-payment" options="-parameters" />
       <module name="spring-demo" options="-parameters" />
+      <module name="t-taco-app" options="-parameters" />
     </option>
   </component>
 </project>
