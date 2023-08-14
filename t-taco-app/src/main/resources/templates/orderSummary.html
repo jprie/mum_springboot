@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Taco Cloud</title>
+    <link type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+
+<h2>Checkout</h2>
+
+<img th:src="@{/images/TacoCloud.png}"/>
+
+
+<h3>Delivery address</h3>
+<table>
+    <tr>
+        <td th:text="${tacoOrder.firstName}">TACOORDER</td><br/>
+        <td th:text="${tacoOrder.lastName}">TACOORDER</td><br/>
+        <td th:text="${tacoOrder.address}">Adress</td><br/>
+        <td th:text="${tacoOrder.creditCard}">Adress</td><br/>
+    </tr>
+</table>
+
+</body>
+</html>

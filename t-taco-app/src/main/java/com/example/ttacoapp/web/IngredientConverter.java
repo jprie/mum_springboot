@@ -17,13 +17,12 @@ public class IngredientConverter implements Converter<String, Ingredient> {
 
     public IngredientConverter() {
         this.ingredientMap = Ingredient.allIngredients().stream()
-                .collect());
+                .collect(Collectors.toMap(Ingredient::getId, ingredient -> ingredient));
     }
 
     @Override
     public Ingredient convert(String id) {
 
-        log.info("Converting: {}", id);
         return ingredientMap.get(id);
     }
 }

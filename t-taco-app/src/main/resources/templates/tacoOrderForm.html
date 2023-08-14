@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Taco Cloud</title>
+</head>
+<body>
+<h2>Your taco order</h2>
+
+<ul>
+  <li th:each="taco : ${tacoOrder.tacos}" th:text="${taco.name}"></li>
+</ul>
+
+<a th:href="/design">Design new taco</a>
+
+<h2>Delivery details</h2>
+<form method="post" action="/orders" th:object="${tacoOrder}">
+    <label for="firstName">First name</label>
+    <input id="firstName" type="text" th:field="*{firstName}"/><br/>
+
+    <label for="lastName">Last name</label>
+    <input id="lastName" type="text" th:field="*{lastName}"/><br/>
+
+    <label for="street">Street</label>
+    <input id="street" type="text" th:field="*{address.street}"/><br/>
+    <label for="streetNr">Street Number</label>
+    <input id="streetNr" type="text" th:field="*{address.streetNr}"/><br/>
+    <label for="zip">ZIP</label>
+    <input id="zip" type="text" th:field="*{address.zipCode}"/><br/>
+    <label for="city">City</label>
+    <input id="city" type="text" th:field="*{address.city}"/><br/>
+    <label for="country">Country</label>
+    <input id="country" type="text" th:field="*{address.country}"/><br/>
+
+    <label for="ccHolder">Card Holder</label>
+    <input id="ccHolder" type="text" th:field="*{creditCard.ccHolder}"/><br/>
+    <label for="ccNumber">Card Number</label>
+    <input id="ccNumber" type="text" th:field="*{creditCard.ccNumber}"/><br/>
+    <label for="ccExpires">Expires on</label>
+    <input id="ccExpires" type="text" th:field="*{creditCard.ccExpires}"/><br/>
+    <label for="ccCCV">CCV</label>
+    <input id="ccCCV" type="text" th:field="*{creditCard.ccCCV}"/><br/>
+
+    <input type="submit" value="Order"/>
+
+</form>
+
+</body>
+</html>
