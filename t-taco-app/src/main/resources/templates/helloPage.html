@@ -15,7 +15,8 @@
     <label for="name">Name</label>
     <input id="name" th:field="*{name}" type="text"/><br/>
 
-    <select th:field="*{phonePrefix}">
+    <label for="phonePrefix" th:text="#{phone.prefix}">Phone prefix</label>
+    <select id="phonePrefix" th:field="*{phonePrefix}">
         <option th:each="pf : ${phonePrefixes}"
                 th:value="${pf}"
                 th:text="${pf}">Phone prefix</option>

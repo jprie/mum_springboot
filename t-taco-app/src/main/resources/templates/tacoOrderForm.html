@@ -13,35 +13,63 @@ xmlns:th="http://www.thymeleaf.org">
   <li th:each="taco : ${tacoOrder.tacos}" th:text="${taco.name}"></li>
 </ul>
 
-<a th:href="/design">Design new taco</a>
+<a th:href="@{/design}">Design new taco</a>
 
 <h2>Delivery details</h2>
 <form method="post" action="/orders" th:object="${tacoOrder}">
     <label for="firstName">First name</label>
-    <input id="firstName" type="text" th:field="*{firstName}"/><br/>
+    <input id="firstName" type="text" th:field="*{firstName}"/>
+    <span th:errorclass="validationError" th:errors="*{firstName}"></span>
+    <br/>
 
     <label for="lastName">Last name</label>
     <input id="lastName" type="text" th:field="*{lastName}"/><br/>
+    <span th:errorclass="validationError" th:errors="*{lastName}"></span>
+
 
     <label for="street">Street</label>
-    <input id="street" type="text" th:field="*{address.street}"/><br/>
+    <input id="street" type="text" th:field="*{address.street}"/>
+    <span th:errorclass="validationError" th:errors="*{address.street}"></span>
+
+    <br/>
     <label for="streetNr">Street Number</label>
-    <input id="streetNr" type="text" th:field="*{address.streetNr}"/><br/>
+    <input id="streetNr" type="text" th:field="*{address.streetNr}"/>
+    <span th:errorclass="validationError" th:errors="*{address.streetNr}"></span>
+    <br/>
+
     <label for="zip">ZIP</label>
-    <input id="zip" type="text" th:field="*{address.zipCode}"/><br/>
+    <input id="zip" type="text" th:field="*{address.zipCode}"/>
+    <span th:errorclass="validationError" th:errors="*{address.zipCode}"></span>
+
+    <br/>
     <label for="city">City</label>
-    <input id="city" type="text" th:field="*{address.city}"/><br/>
+    <input id="city" type="text" th:field="*{address.city}"/>
+    <span th:errorclass="validationError" th:errors="*{address.city}"></span>
+    <br/>
     <label for="country">Country</label>
-    <input id="country" type="text" th:field="*{address.country}"/><br/>
+    <input id="country" type="text" th:field="*{address.country}"/>
+    <span th:errorclass="validationError" th:errors="*{address.country}"></span>
+
+    <br/>
 
     <label for="ccHolder">Card Holder</label>
-    <input id="ccHolder" type="text" th:field="*{creditCard.ccHolder}"/><br/>
+    <input id="ccHolder" type="text" th:field="*{creditCard.ccHolder}"/>
+    <span th:errorclass="validationError" th:errors="*{creditCard.ccHolder}"></span>
+    <br/>
     <label for="ccNumber">Card Number</label>
-    <input id="ccNumber" type="text" th:field="*{creditCard.ccNumber}"/><br/>
+    <input id="ccNumber" type="text" th:field="*{creditCard.ccNumber}"/>
+    <span th:errorclass="validationError" th:errors="*{creditCard.ccNumber}"></span>
+    <br/>
+
     <label for="ccExpires">Expires on</label>
-    <input id="ccExpires" type="text" th:field="*{creditCard.ccExpires}"/><br/>
+    <input id="ccExpires" type="text" th:field="*{creditCard.ccExpires}"/>
+    <span th:errorclass="validationError" th:errors="*{creditCard.ccExpires}"></span>
+    <br/>
+
     <label for="ccCCV">CCV</label>
-    <input id="ccCCV" type="text" th:field="*{creditCard.ccCCV}"/><br/>
+    <input id="ccCCV" type="text" th:field="*{creditCard.ccCCV}"/>
+    <span th:errorclass="validationError" th:errors="*{creditCard.ccCCV}"></span>
+    <br/>
 
     <input type="submit" value="Order"/>
 

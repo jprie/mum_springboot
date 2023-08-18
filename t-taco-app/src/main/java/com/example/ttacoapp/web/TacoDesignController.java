@@ -1,17 +1,15 @@
 package com.example.ttacoapp.web;
 
-import com.example.ttacoapp.domain.Ingredient;
-import com.example.ttacoapp.domain.IngredientType;
+import com.example.ttacoapp.data.IngredientRepository;
 import com.example.ttacoapp.domain.Taco;
 import com.example.ttacoapp.domain.TacoOrder;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -20,18 +18,25 @@ import java.util.stream.Collectors;
 @SessionAttributes("tacoOrder")
 public class TacoDesignController {
 
+    private IngredientRepository ingredientRepository;
+
+    public TacoDesignController(IngredientRepository ingredientRepository) {
+        this.ingredientRepository = ingredientRepository;
+    }
+
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
 
-        var ingredientsMap = Ingredient.allIngredients().stream()
+        var ingredientsMap = ingredientRepository.findAll().stream()
                         .collect(Collectors.groupingBy(
                                 ingredient -> ingredient.getType().toString().toLowerCase())
                         );
 
+        // model.addAttribute(key1, value1), model.addAttribute(key2, value2), ...
         model.addAllAttributes(ingredientsMap);
     }
 
-    @ModelAttribute("tacoOrder")
+    @ModelAttribute("tacoOrder") // model.addAttribute("tacoOrder", new TacoOrder())
     public TacoOrder tacoOrder() {
         return new TacoOrder();
     }
@@ -44,14 +49,22 @@ public class TacoDesignController {
     @GetMapping()
     public String showDesignForm(Model model) {
 
-        return "designForm";
+        return "designForm"; // ruft TemplateEngine mit template und model auf
     }
 
     @PostMapping()
-    public String processTaco(Taco taco,
-                               @ModelAttribute TacoOrder tacoOrder){
-        log.info("Taco: {}", taco);
+    public String processTaco(@Valid Taco taco,
+                               Errors errors,
+                               @ModelAttribute TacoOrder tacoOrder){ // holt TacoOrder aus dem Model
 
+        if (errors.hasErrors()) {
+            for (var error : errors.getAllErrors()) {
+                log.error("Error {}", error);
+            }
+            return "designForm"; // errors werden automatisch an die TemplateEngine übergeben
+        }
+
+        log.info("Taco: {}", taco);
         tacoOrder.addTaco(taco);
 
 //        return "tacoOrderForm";
