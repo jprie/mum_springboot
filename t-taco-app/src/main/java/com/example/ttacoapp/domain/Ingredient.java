@@ -1,6 +1,8 @@
 package com.example.ttacoapp.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -19,6 +21,7 @@ public class Ingredient {
     @Id // definiert den Primary Key
     private String id; // Flour Tortilla = FLTO
     private String name;
+    @Enumerated(value = EnumType.STRING)
     private IngredientType type;
     private BigDecimal price;
 

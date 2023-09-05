@@ -51,7 +51,7 @@ public class TacoOrderController {
         var sumPrices = tacoOrderService.calculateSum(tacoOrder);
 
         model.addAttribute("tacoNamesAndPrices", tacoNamesAndPrices);
-        model.addAttribute("sum", sumPrices);
+        model.addAttribute("sumPrices", sumPrices);
 
         log.info("Taco order with address {}", tacoOrder);
         return "orderSummary";

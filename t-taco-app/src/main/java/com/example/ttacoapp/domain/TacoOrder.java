@@ -34,11 +34,12 @@ public class TacoOrder {
     private CreditCard creditCard;
 
     @NotEmpty
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
     private List<Taco> tacos = new ArrayList<>();
 
     public void addTaco(Taco taco) {
 
+        taco.setOrder(this);
         tacos.add(taco);
     }
 }

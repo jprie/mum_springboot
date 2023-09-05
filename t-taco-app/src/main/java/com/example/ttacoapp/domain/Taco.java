@@ -20,7 +20,20 @@ public class Taco {
     private long id;
     @Size(min = 3, max = 25, message = "name must have at least 3 and at most 12 characters")
     private String name;
+
+    @ManyToOne
+    private TacoOrder order;
     @Size(min = 4, message = "choose at least 4 ingredients")
     @ManyToMany
     private List<Ingredient> ingredients;
+
+    @Override
+    public String toString() {
+        return "Taco{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", order=" + (order == null ? "0" : order.getId()) +
+                ", ingredients=" + ingredients +
+                '}';
+    }
 }
