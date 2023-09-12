@@ -4,11 +4,16 @@ import com.example.ttacoapp.domain.Ingredient;
 import org.springframework.data.repository.ListCrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 // Das Repository erweitert das ListCrudRepository-Interface von spring-data
 // Dadurch werden alle CRUD Methoden im Hintergrund implementiert
 // Und zwar für den angegebenen Typ samt Typ der id
-public interface IngredientRepository extends ListCrudRepository<Ingredient, String> {
+public interface IngredientRepository {
 
-    /*List<Ingredient> findAll();*/
+    List<Ingredient> findAll();
+    Optional<Ingredient> findById(String id);
+    void save(Ingredient ingredient);
+    void saveAll(List<Ingredient> ingredients);
+
 }
