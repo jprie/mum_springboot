@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="d-travel-agency:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/d_travel_agency_jar</output-path>
-    <root id="archive" name="d-travel-agency.jar">
-      <element id="module-output" name="d-travel-agency" />
-    </root>
-  </artifact>
-</component>
