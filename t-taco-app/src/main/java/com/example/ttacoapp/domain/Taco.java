@@ -16,7 +16,7 @@ import java.util.List;
 public class Taco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Size(min = 3, max = 25, message = "name must have at least 3 and at most 12 characters")
     private String name;
@@ -25,6 +25,11 @@ public class Taco {
     private TacoOrder order;
     @Size(min = 4, message = "choose at least 4 ingredients")
     @ManyToMany
+    @JoinTable(
+            name = "Taco_Ingredients",
+            joinColumns = @JoinColumn(name = "taco_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    )
     private List<Ingredient> ingredients;
 
     @Override

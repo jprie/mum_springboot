@@ -9,11 +9,6 @@ import java.util.Optional;
 // Das Repository erweitert das ListCrudRepository-Interface von spring-data
 // Dadurch werden alle CRUD Methoden im Hintergrund implementiert
 // Und zwar für den angegebenen Typ samt Typ der id
-public interface IngredientRepository {
-
-    List<Ingredient> findAll();
-    Optional<Ingredient> findById(String id);
-    void save(Ingredient ingredient);
-    void saveAll(List<Ingredient> ingredients);
+public interface IngredientRepository extends ListCrudRepository<Ingredient, String> {
 
 }

@@ -18,7 +18,7 @@ import java.util.List;
 public class TacoOrder {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Size(min=3, max=20)

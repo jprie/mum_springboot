@@ -25,12 +25,12 @@ create table if not exists Ingredient (
     id varchar(4) not null primary key,
     name varchar(20),
     type varchar(10),
-    price varchar(5)
+    price numeric(38,2)
 );
 
 create table if not exists Taco_Ingredients (
     taco_id bigint,
-    ingredient_id bigint
+    ingredient_id varchar(4)
 );
 
 alter table Taco add foreign key (order_id) references Taco_Order(id);
