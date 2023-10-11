@@ -1,0 +1,37 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Client
+
+Client -> ServiceInterface
+
+interface ServiceInterface
+
+ServiceInterface <|.. Proxy
+ServiceInterface <|.. Service
+
+class Proxy {
+    - realService: Service
+    ---
+    + Proxy(s: Service)
+    + operation()
+    - checkAccess(user:User)
+}
+
+note right of Proxy::Proxy
+realService = s
+end note
+
+note bottom of Proxy
+if (checkAccess(user)) {
+    operation();
+}
+end note
+
+class Service {
+    + operation()
+}
+
+Proxy o-> Service
+
+@enduml

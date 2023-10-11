@@ -1,0 +1,57 @@
+@startuml
+'https://plantuml.com/class-diagram
+'skinparam groupInheritance 3
+
+class Client {
+    + setNotifier(notifier: Notifier)
+    + doSomething()
+}
+note left of Client::doSomething
+notifier.send()
+end note
+
+Client -> Notifier
+abstract class Notifier {
++ {abstract} send()
+}
+
+BaseDecorator o-up-> Notifier
+
+abstract class BaseDecorator {
+- wrappee: Notifier
+---
++ BaseDecorator(wrappee: Notifier)
++ send()
+}
+
+note left of BaseDecorator::send
+wrappee.send()
+end note
+
+
+Notifier <|-- BaseDecorator
+
+class SMSDecorator {
++ send()
+}
+
+BaseDecorator <|-- SMSDecorator
+
+class FacebookDecorator {
++ send()
+}
+
+BaseDecorator <|-- FacebookDecorator
+
+class SlackDecorator {
++ send()
+}
+
+note left of SMSDecorator::send
+super::send();
+sendSMS();
+end note
+
+BaseDecorator <|-- SlackDecorator
+
+@enduml

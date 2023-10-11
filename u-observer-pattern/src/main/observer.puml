@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Observable {
+- Observer[] subscribers
+---
++ register(observer: Observer)
++ unregister (observer: Observer)
++ notifyObservers(data)
+}
+
+class ConcreteObservable {
+temperatureData: Data
+---
++ register(observer: Observer)
++ unregister (observer: Observer)
++ notifyObservers(data)
++ businessLogic()
+}
+
+
+Observable <|.. ConcreteObservable
+
+Observable o-> Observer
+
+interface Observer {
+update()
+}
+
+note left of Observable : for (obs : observers) obs.update(data)
+
+Observer <|.. ConcreteObserver
+
+class ConcreteObserver {
+    update()
+    show()
+}
+
+@enduml

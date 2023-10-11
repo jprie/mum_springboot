@@ -1,0 +1,37 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+class Navigator {
+- routeStrategy Strategy
+---
++ buildRoute(A, B)
+}
+
+note left of Navigator : route = routeStrategy.buildRoute(A, B)
+
+Navigator o--> Strategy
+
+interface Strategy {
++ buildRoute(A,B)
+}
+
+Strategy <|-- PedestrianStrategy
+
+class PedestrianStrategy {
++ buildRoute(A,B)
+}
+
+Strategy <|-- RoadStrategy
+
+class RoadStrategy {
++ buildRoute(A,B)
+}
+
+Strategy <|-- PublicTransportStrategy
+
+class PublicTransportStrategy {
++ buildRoute(A,B)
+}
+@enduml

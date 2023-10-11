@@ -1,0 +1,13 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class MyClass {
+    {static} - instance: MyClass
+    ---
+    - MyClass()
+    + getInstance()
+}
+
+MyClass *-- MyClass
+
+@enduml

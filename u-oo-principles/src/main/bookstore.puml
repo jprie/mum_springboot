@@ -1,0 +1,72 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+set separator ::
+class BookStoreApp {
+    - run()
+    + main(args: String)
+}
+
+
+abstract class domain::Product {
+    - id: long
+    - storage: String
+    - price: BigDecimal
+}
+
+class domain::Magazine {
+    - title: String
+    - publisher: Publisher
+}
+
+class domain::Book {
+    - title: String
+    - author: Author
+    - numberPages: int
+    - edition: int
+
+}
+
+class domain::Postcard {
+
+}
+
+Product <|-- Book
+Product <|-- Magazine
+Product <|-- Postcard
+
+interface service::ProductServiceInterface {
+    {abstract}+ save(product: Product)
+    {abstract}+ readById(id: long)
+    {abstract}+ readAll(): List<Product>
+    {abstract}+ deleteById(id: long)
+}
+
+class service::ProductService {
+    - products: List<Product>
+    - productRepository: ProductRepository
+    ---
+    + save(product: Product)
+    + readById(id: long)
+    + readAll(): List<Product>
+    + deleteById(id: long)
+}
+
+ProductServiceInterface <|.. ProductService
+ProductServiceInterface <.. Product
+ProductService <- Product
+
+class ui::ProductViewController {
+    model: ProductServiceInterface
+    view: ProductView
+}
+class ui::ProductView
+
+ProductView <-- ProductViewController
+ProductViewController --> ProductServiceInterface
+
+interface data::ProductRepository
+
+ProductService --> ProductRepository
+
+@enduml

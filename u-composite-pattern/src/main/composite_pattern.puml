@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Client
+
+abstract Component {
+    draw()
+}
+
+Client --> Component
+
+class Leaf {
+draw()
+}
+
+Component <|-- Leaf
+
+class Composite {
+children[]: Composite
+---
+addChildren(children: Composite[])
+getChildren(): Composite[]
+draw()
+}
+
+Component <|-- Composite
+
+@enduml

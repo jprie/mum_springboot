@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class Client {
+    createFood() : Food
+}
+
+note left of Client : Food f = foodFactory.createFood()
+
+abstract class FoodFactory {
+    createFood() : Food
+}
+
+Client --> FoodFactory
+
+FoodFactory <|-- PizzaFactory
+
+
+'PizzaFactory <-- MargheritaPizza
+'PizzaFactory <-- FunghiPizza
+'PizzaFactory <-- ProsciuttoPizza
+
+abstract class Food
+
+FoodFactory <- Food
+
+class Pizza
+
+class Pasta
+
+Food <|-- Pizza
+Food <|-- Pasta
+
+class PizzaFactory {
+createFood(): Food
+}
+note "return new Pizza()" as N1
+
+N1 .right. PizzaFactory::createFood
+
+class PastaFactory
+
+FoodFactory <|-- PastaFactory
+@enduml
