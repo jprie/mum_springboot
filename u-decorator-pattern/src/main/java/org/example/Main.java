@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Packe SmsDecorator in FacebookDecorator
-        Notifier myNotifier = new FacebookDecorator(new SmsDecorator(new SlackDecorator(null)));
+        Notifier myNotifier = new FacebookDecorator(new SmsDecorator(new SlackDecorator()));
 
         myNotifier.send();
     }
@@ -15,7 +15,9 @@ abstract class Notifier {
 }
 
 class BaseDecorator extends Notifier {
-    private final Notifier wrappee;
+    private Notifier wrappee;
+
+    public BaseDecorator() {}
 
     public BaseDecorator(Notifier wrappee) {
         this.wrappee = wrappee;
@@ -31,6 +33,7 @@ class BaseDecorator extends Notifier {
 
 class SmsDecorator extends BaseDecorator {
 
+    public SmsDecorator () {}
     public SmsDecorator(Notifier wrappee) {
         super(wrappee);
     }
@@ -44,6 +47,7 @@ class SmsDecorator extends BaseDecorator {
 
 class FacebookDecorator extends BaseDecorator {
 
+    public FacebookDecorator() {}
     public FacebookDecorator(Notifier wrappee) {
         super(wrappee);
     }
@@ -57,6 +61,7 @@ class FacebookDecorator extends BaseDecorator {
 
 class SlackDecorator extends BaseDecorator {
 
+    public SlackDecorator() {}
     public SlackDecorator(Notifier wrappee) {
         super(wrappee);
     }
