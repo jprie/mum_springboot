@@ -10,7 +10,7 @@ abstract class Observable {
 }
 
 class ConcreteObservable {
-temperatureData: Data
+- data: Data
 ---
 + register(observer: Observer)
 + unregister (observer: Observer)

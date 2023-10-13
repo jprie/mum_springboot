@@ -5,7 +5,7 @@ class MyClass {
     {static} - instance: MyClass
     ---
     - MyClass()
-    + getInstance()
+    {static} + getInstance(): MyClass
 }
 
 MyClass *-- MyClass

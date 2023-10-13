@@ -56,17 +56,30 @@ ProductServiceInterface <|.. ProductService
 ProductServiceInterface <.. Product
 ProductService <- Product
 
+class ui::BaseController {
+    {static} ProductServiceInterface model
+}
+
+
+
 class ui::ProductViewController {
     model: ProductServiceInterface
     view: ProductView
 }
 class ui::ProductView
 
+BaseController <|- ProductViewController
 ProductView <-- ProductViewController
 ProductViewController --> ProductServiceInterface
 
 interface data::ProductRepository
 
+class data::ProductRepositoryJDBC
+class data::ProductRepositoryJPA
+
 ProductService --> ProductRepository
+
+ProductRepository <|-- ProductRepositoryJDBC
+ProductRepository <|-- ProductRepositoryJPA
 
 @enduml

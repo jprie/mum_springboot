@@ -3,9 +3,9 @@
 
 
 class Client
-interface Facade
+abstract Facade
 
-Client -> Facade
+Client --> Facade
 
 set separator ::
 class ComplexLibrary::ClassA

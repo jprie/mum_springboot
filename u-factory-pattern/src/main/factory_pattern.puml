@@ -23,7 +23,7 @@ FoodFactory <|-- PizzaFactory
 
 abstract class Food
 
-FoodFactory -> Food
+FoodFactory .> Food
 
 abstract class Pizza
 
@@ -31,13 +31,18 @@ Pizza <|-- FunghiPizza
 Pizza <|-- MargheritaPizza
 Pizza <|-- SalamiPizza
 
-class Pasta
+abstract class Pasta
+
+Pasta <|-- BolognesePasta
+Pasta <|-- CarbonaraPasta
+
 
 Food <|-- Pizza
 Food <|-- Pasta
 
-PizzaFactory -> Pizza
-PastaFactory -> Pasta
+'PizzaFactory -> Pizza
+'PastaFactory -> Pasta
+
 class PizzaFactory {
 createFood(): Food
 }

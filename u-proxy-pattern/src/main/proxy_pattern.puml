@@ -18,13 +18,13 @@ class Proxy {
     - checkAccess(user:User)
 }
 
-note right of Proxy::Proxy
+note left of Proxy::Proxy
 realService = s
 end note
 
 note bottom of Proxy
 if (checkAccess(user)) {
-    operation();
+    realService.operation();
 }
 end note
 

@@ -16,10 +16,10 @@ draw()
 Component <|-- Leaf
 
 class Composite {
-children[]: Composite
+children[]: Component
 ---
-addChildren(children: Composite[])
-getChildren(): Composite[]
+addChildren(children: Component[])
+getChildren(): Component[]
 draw()
 }
 
