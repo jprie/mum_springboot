@@ -23,15 +23,21 @@ FoodFactory <|-- PizzaFactory
 
 abstract class Food
 
-FoodFactory <- Food
+FoodFactory -> Food
 
-class Pizza
+abstract class Pizza
+
+Pizza <|-- FunghiPizza
+Pizza <|-- MargheritaPizza
+Pizza <|-- SalamiPizza
 
 class Pasta
 
 Food <|-- Pizza
 Food <|-- Pasta
 
+PizzaFactory -> Pizza
+PastaFactory -> Pasta
 class PizzaFactory {
 createFood(): Food
 }
