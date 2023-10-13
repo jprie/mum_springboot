@@ -1,0 +1,52 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Observable {
+- Observer[] subscribers
+---
++ register(observer: Observer)
++ unregister (observer: Observer)
++ notifyObservers(data)
+}
+
+class TemperatureSensor {
+- temperatureData: Data
+---
++ register(observer: Observer)
++ unregister (observer: Observer)
++ notifyObservers(data)
++ businessLogic()
+}
+
+
+Observable <|.. TemperatureSensor
+
+Observable o-> Observer
+
+interface Observer {
++ update()
+}
+
+note left of Observable::notifyObservers
+for (obs : observers) obs.update(data)
+end note
+
+Observer <|.. WeatherStation
+
+class WeatherStation {
+    temperaturViewer: TemperatureViewer
+    ---
+    + update()
+
+}
+note left of WeatherStation::update
+    temperaturViewer.show(data)
+end note
+
+WeatherStation -> TemperatureViewer
+
+class TemperatureViewer {
+---
++ show(data: Data)
+}
+@enduml
