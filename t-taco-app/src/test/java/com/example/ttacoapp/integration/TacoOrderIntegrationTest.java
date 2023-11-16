@@ -1,4 +1,4 @@
-package com.example.ttacoapp.web;
+package com.example.ttacoapp.integration;
 
 import com.example.ttacoapp.domain.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -58,9 +58,6 @@ class TacoOrderIntegrationTest {
                 .andExpect(content().string(containsString("my taco")));
     }
 
-    @Autowired
-    ObjectMapper objectMapper;
-
     @Test
     void processOrder() throws Exception {
 
@@ -74,10 +71,13 @@ class TacoOrderIntegrationTest {
         mockMvc.perform(
                         post("/orders")
                                 .session(httpSession)
-                                .content(objectMapper.writeValueAsString(tacoOrderFromForm())) // tacoOrder mit ausgefüllter Form
+                                .param("firstName", "Johannes")
+                                .param("lastName", "Priebsch")// tacoOrder mit ausgefüllter Form
                 )
                 .andExpect(status().isOk())
-                .andExpect(view().name("orderSummary"));
+                .andExpect(view().name("orderSummary"))
+                .andExpect(content().string(containsString("1.6")))
+                .andExpect(content().string(containsString("my taco")));
 
     }
 
