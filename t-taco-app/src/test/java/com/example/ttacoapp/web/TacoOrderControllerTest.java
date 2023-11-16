@@ -65,12 +65,6 @@ public class TacoOrderControllerTest {
     @Test
     public void processTacoOrder() throws Exception {
 
-        tacoOrder = TestUtilities.tacoOrderEntity();
-        // Mock-Implementierung: TacoOrderService
-        when(tacoOrderService.calculateTacoPrices(tacoOrder))
-                .thenReturn(List.of(new TacoOrderService.TacoNameAndPrice("my taco", new BigDecimal("1.6"))));
-        when(tacoOrderService.calculateSum(tacoOrder))
-                .thenReturn(new BigDecimal("1.6"));
 
 
         // taco Order in der Session
@@ -79,6 +73,12 @@ public class TacoOrderControllerTest {
 
         httpSession = new MockHttpSession();
         httpSession.setAttribute("tacoOrder", tacoOrder);
+
+        // Mock-Implementierung: TacoOrderService
+        when(tacoOrderService.calculateTacoPrices(tacoOrder))
+                .thenReturn(List.of(new TacoOrderService.TacoNameAndPrice("my taco", new BigDecimal("1.6"))));
+        when(tacoOrderService.calculateSum(tacoOrder))
+                .thenReturn(new BigDecimal("1.6"));
 
         mockMvc.perform(
                         post("/orders")
