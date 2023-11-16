@@ -35,4 +35,10 @@ public class TestUtilities {
         return new Address("Franz-Jonas-Platz", "1", "1210", "Wien", "Austria");
     }
 
+    public static TacoOrder tacoOrderEntity() {
+        var tacoOrder = tacoOrderFromForm();
+        tacoOrder.setTacos(List.of(tacoForm()));
+        return tacoOrder;
+    }
+
 }

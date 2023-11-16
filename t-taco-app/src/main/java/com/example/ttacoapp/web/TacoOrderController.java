@@ -19,12 +19,12 @@ public class TacoOrderController {
 
     private final TacoOrderService tacoOrderService;
 
-    private final TacoOrderRepository tacoOrderRepository;
+    // Design Fehler
+//    private final TacoOrderRepository tacoOrderRepository;
 
     // Konstruktor-Injection
-    public TacoOrderController(TacoOrderService tacoOrderService, TacoOrderRepository tacoOrderRepository) {
+    public TacoOrderController(TacoOrderService tacoOrderService) {
         this.tacoOrderService = tacoOrderService;
-        this.tacoOrderRepository = tacoOrderRepository;
     }
 
     @GetMapping("/current") // /orders/current
@@ -42,13 +42,16 @@ public class TacoOrderController {
             return "tacoOrderForm";
         }
 
-        tacoOrderRepository.save(tacoOrder);
+        tacoOrderService.save(tacoOrder);
         // session leeren
         sessionStatus.setComplete();
 
         // Berechnung kommt ins Service layer
         var tacoNamesAndPrices = tacoOrderService.calculateTacoPrices(tacoOrder);
         var sumPrices = tacoOrderService.calculateSum(tacoOrder);
+
+        log.info("tacoNamesAndPrices: {}", tacoNamesAndPrices);
+        log.info("sum: {}", sumPrices);
 
         model.addAttribute("tacoNamesAndPrices", tacoNamesAndPrices);
         model.addAttribute("sumPrices", sumPrices);

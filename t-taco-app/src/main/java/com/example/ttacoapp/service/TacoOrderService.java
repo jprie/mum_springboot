@@ -1,5 +1,6 @@
 package com.example.ttacoapp.service;
 
+import com.example.ttacoapp.data.TacoOrderRepository;
 import com.example.ttacoapp.domain.Ingredient;
 import com.example.ttacoapp.domain.Taco;
 import com.example.ttacoapp.domain.TacoOrder;
@@ -10,6 +11,16 @@ import java.util.List;
 
 @Service // damit im Spring Container
 public class TacoOrderService {
+
+    private final TacoOrderRepository tacoOrderRepository;
+
+    public TacoOrderService(TacoOrderRepository tacoOrderRepository) {
+        this.tacoOrderRepository = tacoOrderRepository;
+    }
+
+    public TacoOrder save(TacoOrder tacoOrder) {
+         return tacoOrderRepository.save(tacoOrder);
+    }
 
     /**
      * record: Für Daten-Transport-Objekte (DTO)
